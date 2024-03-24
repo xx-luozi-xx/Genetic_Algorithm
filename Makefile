@@ -1,5 +1,5 @@
 CXX = g++  
-CXXFLAGS = -Wall  
+CXXFLAGS = -Wall
 SRCS = main.cpp rock_paper_scissors.cpp agent.cpp
 OBJS = $(SRCS:.cpp=.o)  
 TARGET = simulater  
@@ -9,10 +9,10 @@ TARGET = simulater
 all: $(TARGET)  
   
 $(TARGET): $(OBJS)  
- $(CXX) $(CXXFLAGS) -o $@ $^  
+	$(CXX) $(CXXFLAGS) -o $@ $^  
   
 %.o: %.cpp  
- $(CXX) $(CXXFLAGS) -c $< -o $@  
+	$(CXX) $(CXXFLAGS) -c $< -o $@  
   
 clean:  
- rm -f $(OBJS) $(TARGET)
+	rm -f $(OBJS) $(TARGET)
