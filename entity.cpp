@@ -35,18 +35,19 @@ int Entity::reaction(const std::vector<int>& env) const{
 
     //layer 1
     std::vector<int> layer_1; 
-    for(int i = 0; i < 3; ++i){
-        layer_1.push_back(x*proteins[i]);
+    for(int i = 0; i < 6; i+=2){
+        layer_1.push_back(x*proteins[i]+proteins[i+1]);
+        x*=x;
     }
 
     //layer 2
     int layer_2 = 0;
-    for(int i = 0; i < 3; ++i){
-        layer_2 += layer_1[i]*proteins[i+3];
+    for(int i = 0, j = 6; i < 3; ++i, ++j){
+        layer_2 += layer_1[i]*proteins[j];
     }
-
+    layer_2 += proteins[9];
     //out reaction
-    return layer_2/20;
+    return layer_2/30;
 }
 
 }//namespace

@@ -57,10 +57,10 @@ void Game::next_tick(){
 }
 
 std::string to_type(int type_){
-    switch (type_){
+    switch (type(type_)){
     case ROCK:      return "rock";
     case PAPER:     return "paper";
-    case SCISSORS:  return "scossors";
+    case SCISSORS:  return "scissors";
     default:        return "error_type";
     }
 }

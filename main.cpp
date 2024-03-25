@@ -15,21 +15,19 @@
 
 using namespace Genetic_Algorithm;
 
-int main1(){
-    printf("testing");
-}
 
 int main(){
     srand(time(0)^rand());
     //init a polulation with POPULATION_SIZE
-    std::vector<std::pair<int, Entity>> population(POPULATION_SIZE, {0, Entity(6, 3)});
+    std::vector<std::pair<int, Entity>> population(POPULATION_SIZE, {0, Entity(10, 3)});
     for(int evo_round = 0; evo_round < EVOLUTIONARY_ROUND; ++evo_round){
+        std::cout << "round :" <<  evo_round << std::endl;
         // testing
         for(int i = 0; i < population.size(); ++i){
-            if(population[i].first == 0){
-                using namespace rock_paper_scissors;
+            {using namespace rock_paper_scissors;
+                population[i].first = 0;
                 Game game;
-                for(int game_round = 0; game_round < 10; ++game_round){
+                for(int game_round = 0; game_round < 20; ++game_round){
                     int reaction = population[i].second.reaction({game.get_environment()});
                     population[i].first += game.operate(type(reaction));
                 }
@@ -55,8 +53,8 @@ int main(){
     const Entity* best = nullptr;
     int best_score = -0x7fffffff;
     for(int i = 0; i < population.size(); ++i){
-        if(population[i].first == 0){
-            using namespace rock_paper_scissors;
+        {using namespace rock_paper_scissors;
+            population[i].first = 0;
             Game game;
             for(int game_round = 0; game_round < 10; ++game_round){
                 int reaction = population[i].second.reaction({game.get_environment()});
@@ -65,8 +63,10 @@ int main(){
         }
         if(population[i].first > best_score){
             best = &population[i].second;
+            best_score = population[i].first;
         }
     }
+
 
     //testing the action of the best entity
     std::cout << "the best entity:" << best->show_chromosome() << '\n';
@@ -76,7 +76,10 @@ int main(){
         for(int game_round = 0; game_round < 10; ++game_round){
             int env = game.get_environment();
             int reaction = best->reaction({env});
-            std::cout << "env:" << to_type(reaction) << "   reaction:" << to_type(reaction) << "\n";
+            int score = game.operate(type(reaction));
+            std::cout << "env:" << to_type(env) 
+                      << "   reaction:" << to_type(reaction) 
+                      << "   score:" << score <<"\n";
         } 
     }
     return 0;
