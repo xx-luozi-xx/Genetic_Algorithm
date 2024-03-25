@@ -44,8 +44,8 @@ int main(){
         //multiply
         while(population.size() < POPULATION_SIZE){
             const Entity& father = population[rand()%population.size()].second;
-            const Entity& mather = population[rand()%population.size()].second;
-            population.push_back({0, Entity(father, mather)});
+            const Entity& mother = population[rand()%population.size()].second;
+            population.push_back({0, Entity(father, mother)});
         }
     }
     
