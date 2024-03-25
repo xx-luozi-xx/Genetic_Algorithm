@@ -70,6 +70,7 @@ int main(){
 
     //testing the action of the best entity
     std::cout << "the best entity:" << best->show_chromosome() << '\n';
+    std::cout << "score: " << best_score << '\n';
     {using namespace rock_paper_scissors;
         Game game;
         for(int game_round = 0; game_round < 10; ++game_round){

@@ -46,7 +46,7 @@ int Entity::reaction(const std::vector<int>& env) const{
     }
 
     //out reaction
-    return layer_2/10000;
+    return layer_2/20;
 }
 
 }//namespace

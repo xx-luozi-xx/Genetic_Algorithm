@@ -1,6 +1,6 @@
 CXX = g++  
 CXXFLAGS = -Wall
-SRCS = main.cpp rock_paper_scissors.cpp agent.cpp entity.cpp
+SRCS = main.cpp rock_paper_scissors.cpp agent.cpp entity.cpp luozilib.cpp
 OBJS = $(SRCS:.cpp=.o)  
 TARGET = simulater  
   

@@ -1,6 +1,8 @@
 #include "agent.h"
 #include "genetic_setting.h"
 
+#include "luozilib.h"
+
 #include <stdlib.h>     //rand()
 #include <assert.h>     //assert()
 #include <strstream>    //strstream
@@ -11,8 +13,8 @@ namespace Genetic_Algorithm{
 Agent::Agent(int chromosome_len)
     :chromosome_len_(chromosome_len){
     for(int i = 0; i < chromosome_len; ++i){
-        chromosome_[0].push_back(rand());
-        chromosome_[1].push_back(rand());
+        chromosome_[0].push_back(luozi::rand(-10, 10));
+        chromosome_[1].push_back(luozi::rand(-10, 10));
     }
 }
 Agent::Agent(const Agent& father, const Agent& mather){
@@ -48,7 +50,7 @@ void Agent::mutation(){
     int chr_idx = rand()%2;
     int gene_idx = rand()%chromosome_len();
 
-    chromosome_[chr_idx][gene_idx] = rand();
+    chromosome_[chr_idx][gene_idx] = luozi::rand(-10, 10);
 }
 
 int Agent::chromosome_len() const{
