@@ -14,13 +14,15 @@
 #include <iostream>  
 
 using namespace Genetic_Algorithm;
-//
+
+int main1(){
+    printf("testing");
+}
 
 int main(){
     srand(time(0)^rand());
     //init a polulation with POPULATION_SIZE
     std::vector<std::pair<int, Entity>> population(POPULATION_SIZE, {0, Entity(6, 3)});
-
     for(int evo_round = 0; evo_round < EVOLUTIONARY_ROUND; ++evo_round){
         // testing
         for(int i = 0; i < population.size(); ++i){
@@ -48,10 +50,10 @@ int main(){
             population.push_back({0, Entity(father, mather)});
         }
     }
-
+    
     //finding the best entity
     const Entity* best = nullptr;
-    int best_score = 0;
+    int best_score = -0x7fffffff;
     for(int i = 0; i < population.size(); ++i){
         if(population[i].first == 0){
             using namespace rock_paper_scissors;
@@ -73,7 +75,7 @@ int main(){
         for(int game_round = 0; game_round < 10; ++game_round){
             int env = game.get_environment();
             int reaction = best->reaction({env});
-            std::cout << "env:" << to_type(reaction) << "reaction:" << to_type(reaction) << "\n";
+            std::cout << "env:" << to_type(reaction) << "   reaction:" << to_type(reaction) << "\n";
         } 
     }
     return 0;
