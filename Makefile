@@ -1,6 +1,6 @@
 CXX = g++  
 CXXFLAGS = -Wall
-SRCS = main.cpp rock_paper_scissors.cpp agent.cpp
+SRCS = main.cpp rock_paper_scissors.cpp agent.cpp entity.cpp
 OBJS = $(SRCS:.cpp=.o)  
 TARGET = simulater  
   

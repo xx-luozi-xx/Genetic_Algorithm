@@ -56,6 +56,17 @@ void Game::next_tick(){
     environment_ = type(rand()%3);
 }
 
+std::string to_type(int type_){
+    switch (type_){
+    case ROCK:      return "rock";
+    case PAPER:     return "paper";
+    case SCISSORS:  return "scossors";
+    default:        return "error_type";
+    }
+}
+
+
+
 }//namespace
 
 

@@ -3,6 +3,10 @@
 
 #include <stdlib.h>     //rand()
 #include <assert.h>     //assert()
+#include <strstream>    //strstream
+#include <string>
+
+namespace Genetic_Algorithm{
 
 Agent::Agent(int chromosome_len)
     :chromosome_len_(chromosome_len){
@@ -50,3 +54,17 @@ void Agent::mutation(){
 int Agent::chromosome_len() const{
     return chromosome_len_;
 }
+
+
+std::string Agent::show_chromosome() const{
+    std::strstream sout;
+    sout << '[';
+    for(int i = 0; i < chromosome_len(); ++i){
+        sout << '(' << chromosome_[0][i] << ',' << chromosome_[1][i] << "),";
+    }
+    sout << ']';
+    return sout.str();
+}
+
+
+}//namespace

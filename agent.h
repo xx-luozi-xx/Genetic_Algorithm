@@ -1,6 +1,9 @@
 #pragma once
 
 #include <vector>
+#include <string>
+
+namespace Genetic_Algorithm{
 
 class Agent{
 public:
@@ -11,7 +14,10 @@ public:
     void mutation();
 
     int chromosome_len() const;
-private:
+    std::string show_chromosome() const;
+protected:
     int chromosome_len_;
     std::vector<int> chromosome_[2];
 };
+
+}//namespace

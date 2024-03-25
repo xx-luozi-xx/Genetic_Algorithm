@@ -1,5 +1,7 @@
 #pragma once
 
+#include <string>
+
 namespace rock_paper_scissors{
 
 const int WIN_SCORE = 3;
@@ -13,6 +15,8 @@ enum type{
     PAPER,
     SCISSORS
 };
+
+std::string to_type(int type_);
 
 class Game{
 public:
